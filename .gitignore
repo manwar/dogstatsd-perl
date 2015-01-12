@@ -1,3 +1,4 @@
+DataDog-DogStatsd-*
 blib/
 .build/
 _build/
