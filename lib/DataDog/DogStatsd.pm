@@ -5,7 +5,7 @@ package DataDog::DogStatsd;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.03';
 
 use IO::Socket::INET;
 
