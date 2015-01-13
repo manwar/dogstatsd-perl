@@ -58,7 +58,7 @@
          "web" : "https://github.com/binary-com/dogstatsd-perl"
       }
    },
-   "version" : "0.03",
+   "version" : "0.04",
    "x_contributors" : [
       "Fayland Lam <fayland@gmail.com>",
       "Stefan Goethals <stefan@zipkid.eu>"

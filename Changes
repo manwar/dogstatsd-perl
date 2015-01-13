@@ -1,6 +1,8 @@
 Revision history for DataDog-DogStatsd
 
 {{$NEXT}}
+
+0.04  2015-01-13 18:09:20 CST
         - sprintf %d for timing
         - more tests
 
