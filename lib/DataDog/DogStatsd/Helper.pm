@@ -21,7 +21,18 @@ sub stats_inc {
     __get_dogstatsd()->increment(@args);
 }
 sub stats_dec    { __get_dogstatsd()->decrement(@_); }
-sub stats_timing { __get_dogstatsd()->timing(@_); }
+
+sub stats_timing {
+    my @args = @_;
+    # support stats_timing('connection_time', 1000 * $interval, 0.1); as well
+    if (@args > 2 and $args[2] =~ /^[\d\.]+$/) {
+        # actually ppl wants stats_count
+        warn "stats_timing sample_rate makes no sense for more than 1\n" if $args[2] > 1;
+        $args[2] = {sample_rate => $args[2]};
+    }
+    __get_dogstatsd()->timing(@args);
+}
+
 sub stats_gauge  { __get_dogstatsd()->gauge(@_); }
 sub stats_count  { __get_dogstatsd()->count(@_); }
 

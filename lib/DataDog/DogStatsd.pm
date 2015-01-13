@@ -80,7 +80,7 @@ sub timing {
 	my $stat = shift;
 	my $ms   = shift;
 	my $opts = shift || {};
-	$self->send_stats( $stat, $ms, 'ms', $opts );
+	$self->send_stats( $stat, sprintf("%d", $ms), 'ms', $opts );
 }
 
 # Reports execution time of the provided block using {#timing}.
@@ -129,9 +129,16 @@ sub send_stats {
 }
 
 sub send_to_socket {
-	my $self = shift;
-	my $message = shift;
-	return $self->_socket()->send( $message );
+	my ($self, $message) = @_;
+
+	my $r = send($self->_socket(), $message, 0);
+	if (! defined $r) {
+		return 0;
+	} elsif ($r != length($message)) {
+		return 0;
+	}
+
+	return 1;
 }
 
 1;
