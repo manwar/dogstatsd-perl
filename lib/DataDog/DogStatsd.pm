@@ -284,6 +284,10 @@ Sends a timing (in ms) for the given stat to the statsd server. The sample_rate 
 
 Sends a value to be tracked as a set to the statsd server.
 
+=head2 event
+
+	$statsd->event('event title', 'event text', { tags => ['tag1, 'tag2'] });
+
 =head1 AUTHORS
 
 Stefan Goethals <stefan@zipkid.eu>
