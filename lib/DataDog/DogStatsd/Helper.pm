@@ -61,7 +61,7 @@ DataDog::DogStatsd::Helper - shortcut/helper for L<DataDog::DogStatsd>
     stats_timing('test.timing', 1); # ->timing
     stats_gauge('test.gauge', 10); # ->gauge
     stats_count('test.count', 20); # ->count
-    stats_gauge('test.histogram', 100); # ->histogram
+    stats_histogram('test.histogram', 100); # ->histogram
 
 =head1 DESCRIPTION
 
