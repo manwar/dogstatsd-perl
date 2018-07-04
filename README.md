@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/binary-com/dogstatsd-perl.svg?branch=master)](https://travis-ci.org/binary-com/dogstatsd-perl)
-[![Coverage Status](https://coveralls.io/repos/binary-com/dogstatsd-perl/badge.png?branch=master)](https://coveralls.io/r/binary-com/dogstatsd-perl?branch=master)
+[![Coverage Status](https://coveralls.io/repos/binary-com/dogstatsd-perl/badge.svg?branch=master)](https://coveralls.io/r/binary-com/dogstatsd-perl?branch=master)
 
 # NAME
 
@@ -87,6 +87,10 @@ Sends a timing (in ms) for the given stat to the statsd server. The sample\_rate
         $statsd->set('visitors.uniques', $user_id);
 
 Sends a value to be tracked as a set to the statsd server.
+
+## event
+
+        $statsd->event('event title', 'event text', { tags => ['tag1, 'tag2'] });
 
 # AUTHORS
 
