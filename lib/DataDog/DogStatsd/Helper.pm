@@ -5,7 +5,7 @@ use warnings;
 our $VERSION = '0.05';
 
 use base qw( Exporter );
-our @EXPORT_OK = qw/stats_inc stats_dec stats_timing stats_gauge stats_count stats_histogram/;
+our @EXPORT_OK = qw/stats_inc stats_dec stats_timing stats_gauge stats_count stats_histogram stats_event/;
 
 use DataDog::DogStatsd;
 
@@ -36,6 +36,7 @@ sub stats_timing {
 sub stats_gauge      { __get_dogstatsd()->gauge(@_); }
 sub stats_count      { __get_dogstatsd()->count(@_); }
 sub stats_histogram  { __get_dogstatsd()->histogram(@_); }
+sub stats_event      { __get_dogstatsd()->event(@_); }
 
 my $__DOGSTATSD;
 sub __get_dogstatsd {
@@ -62,6 +63,7 @@ DataDog::DogStatsd::Helper - shortcut/helper for L<DataDog::DogStatsd>
     stats_gauge('test.gauge', 10); # ->gauge
     stats_count('test.count', 20); # ->count
     stats_histogram('test.histogram', 100); # ->histogram
+    stats_event('event title', 'event text'); # ->event
 
 =head1 DESCRIPTION
 
