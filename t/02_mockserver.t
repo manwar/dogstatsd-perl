@@ -67,6 +67,10 @@ $statsd->event('test event', 'test description',
 ($msg) = MockServer::get_and_reset_messages();
 is $msg, '_e{10,16}:test event|test description|h:host|#tag1,tag2';
 
+$statsd->event('test event', 'test description',
+    { alert_type => "error", tags => [ 'tag1', 'tag2' ] } );
+($msg) = MockServer::get_and_reset_messages();
+is $msg, '_e{10,16}:test event|test description|t:error|#tag1,tag2';
 
 ## test namespace
 $statsd->namespace('test2.');

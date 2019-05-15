@@ -1,5 +1,5 @@
 use Test::More;
-use DataDog::DogStatsd::Helper qw(stats_inc stats_dec stats_timing stats_gauge);
+use DataDog::DogStatsd::Helper qw(stats_inc stats_dec stats_timing stats_gauge stats_event);
 
 pass "successfully imported functions";
 stats_inc('test.stats');
@@ -10,6 +10,8 @@ stats_timing('test.timing', 1);
 pass "stats_timing";
 stats_gauge('test.gauge', 10);
 pass "stats_gauge";
+stats_event('event title', 'event text');
+pass "stats_event";
 
 stats_inc('test.stats.tags', { tags => ['tagC', 'tagD'] });
 
