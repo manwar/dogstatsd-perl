@@ -287,7 +287,7 @@ Sends a value to be tracked as a set to the statsd server.
 =head2 event
 
 	$statsd->event('event title', 'event text', { tags => ['tag1, 'tag2'] });
-        $statsd->event('event title', 'event text', { tags => ['tag1', 'tag2'], alert_type => 'error'});
+	$statsd->event('event title', 'event text', { tags => ['tag1', 'tag2'], alert_type => 'error'});
 
 Sends an event indicating a specific incident occurring. 
 
