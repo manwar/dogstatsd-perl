@@ -19,4 +19,6 @@ $statsd->gauge('test.gauge', 10, { tags => ['tag1', 'tag2'] } );
 $statsd->event('event title', 'event description!');
 $statsd->event('event title', 'event description!', { tags => ['tag1', 'tag2'] , alert_type => 'error'});
 
+$statsd->count('test.count', 1);
+
 done_testing;

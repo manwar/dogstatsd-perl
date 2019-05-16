@@ -72,6 +72,10 @@ $statsd->event('test event', 'test description',
 ($msg) = MockServer::get_and_reset_messages();
 is $msg, '_e{10,16}:test event|test description|t:error|#tag1,tag2';
 
+$statsd->count('test.count', 1);
+($msg) = MockServer::get_and_reset_messages();
+is $msg, 'test.count:1|c';
+
 ## test namespace
 $statsd->namespace('test2.');
 $statsd->increment( 'stats' );
