@@ -15,7 +15,7 @@ use lib $dirname;
 use MockServer;
 
 use Test::More;
-use DataDog::DogStatsd::Helper qw(stats_inc stats_dec stats_timing stats_gauge stats_histogram);
+use DataDog::DogStatsd::Helper qw(stats_inc stats_dec stats_timing stats_gauge stats_histogram stats_event);
 
 my $PORT = MockServer::start();
 
@@ -65,6 +65,10 @@ is $msg, 'test.gauge:10|g';
 stats_histogram('test.histogram', 100);
 ($msg) = MockServer::get_and_reset_messages();
 is $msg, 'test.histogram:100|h';
+
+stats_event('event test', 'this is a test event');
+($msg) = MockServer::get_and_reset_messages();
+is $msg, '_e{10,20}:event test|this is a test event';
 
 ## test tags
 stats_inc( 'test.stats', { tags => ['tag1', 'tag2'] } );
