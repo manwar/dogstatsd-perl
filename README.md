@@ -22,7 +22,7 @@ DataDog::DogStatsd - A Perl client for DogStatsd
 
 Statsd: A DogStatsd client (https://www.datadoghq.com)
 
-The difference between [Net::Statsd](https://metacpan.org/pod/Net::Statsd) and this is that it supports tags and namespace.
+The difference between [Net::Statsd](https://metacpan.org/pod/Net%3A%3AStatsd) and this is that it supports tags and namespace.
 
 # METHODS
 
@@ -91,6 +91,11 @@ Sends a value to be tracked as a set to the statsd server.
 ## event
 
         $statsd->event('event title', 'event text', { tags => ['tag1, 'tag2'] });
+        $statsd->event('event title', 'event text', { tags => ['tag1', 'tag2'], alert_type => 'error'});
+
+Sends an event indicating a specific incident occurring. 
+
+Use alert\_type option to specify the kind of event, available options are error, warning, info, and success.
 
 # AUTHORS
 

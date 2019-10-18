@@ -43,6 +43,7 @@ sub _socket {
 
 sub namespace {
 	my $self = shift;
+        return $self->{'namespace'} unless @_;
 	$self->{'namespace'} = shift;
 }
 
