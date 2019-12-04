@@ -2,7 +2,7 @@ package DataDog::DogStatsd::Helper;
 
 use strict;
 use warnings;
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use base qw( Exporter );
 our @EXPORT_OK = qw/stats_inc stats_dec stats_timing stats_gauge stats_count stats_histogram stats_event stats_timed/;
@@ -65,7 +65,11 @@ sub stats_event      { get_dogstatsd()->event(@_); }
 
 my $DOGSTATSD;
 sub get_dogstatsd {
-    $DOGSTATSD ||= DataDog::DogStatsd->new;
+    $DOGSTATSD ||= DataDog::DogStatsd->new(
+        host        => $ENV{DATADOG_AGENT_HOST},
+        port        => $ENV{DATADOG_AGENT_PORT},
+        namespace   => $ENV{DATADOG_AGENT_NAMESPACE}
+        );
     return $DOGSTATSD;
 }
 

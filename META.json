@@ -58,13 +58,14 @@
          "web" : "https://github.com/binary-com/dogstatsd-perl"
       }
    },
-   "version" : "0.05",
+   "version" : "0.06",
    "x_contributors" : [
       "Amin Marashi <marashi.s.amin@gmail.com>",
       "Chylli <chylli@binary.com>",
       "Fayland Lam <fayland@gmail.com>",
       "Jean-Yves Sireau <jy@binary.com>",
       "Lee Aylward <laylward@fastly.com>",
+      "Mohanad Zarzour <mohanad@binary.com>",
       "Nael Alolwani <nael@binary.com>",
       "Tom Molesworth <tom@binary.com>",
       "Torsten Foertsch <torsten@binary.com>",
